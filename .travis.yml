@@ -11,7 +11,30 @@ rvm:
   - jruby-18mode
   - rbx-2.5.8
 
+env:
+  global:
+    - TESTOPTS="-v"
+    - JAVA_OPTS="-XX:+TieredCompilation -XX:TieredStopAtLevel=1"
+    - JRUBY_OPTS="-Xcompile.invokedynamic=false -J-Djruby.compile.mode=OFF"
+    - RBXOPT="-Xcompiler.no_rbc -Xint"
+  matrix:
+    - BRANCH=rails21
+    - BRANCH=rails22
+    - BRANCH=rails23
+    - BRANCH=rails30
+    - BRANCH=rails31
+    - BRANCH=rails32
+    - BRANCH=rails40
+    - BRANCH=rails41
+    - BRANCH=rails42
+    - BRANCH=norails
+
 matrix:
   allow_failures:
     - rvm: rbx-2
-      
+
+sudo: false
+
+cache: bundler
+
+script: bundle exec rake test:env[$BRANCH] 2>&1
