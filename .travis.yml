@@ -1,4 +1,7 @@
 language: ruby
+
+script: ./test/ci/test_runner.sh
+
 rvm:
   - 1.8.7
   - ree
@@ -7,11 +10,43 @@ rvm:
   - 2.0
   - 2.1
   - 2.2
-  - jruby-19mode
-  - jruby-18mode
+  - jruby-1.7.20
+  - jruby-9.0.4.0
   - rbx-2.5.8
+
+env:
+  global:
+    - JAVA_OPTS="-XX:+TieredCompilation -XX:TieredStopAtLevel=1"
+    - JRUBY_OPTS="-Xcompile.invokedynamic=false -J-Djruby.compile.mode=OFF"
+    - RBXOPT="-Xcompiler.no_rbc -Xint"
+    - SERIALIZE=1
+    - TESTOPTS="-v"
+    - VERBOSE = 1
+  matrix:
+    - TYPE=UNIT BRANCH=rails21
+    - TYPE=UNIT BRANCH=rails22
+    - TYPE=UNIT BRANCH=rails23
+    - TYPE=UNIT BRANCH=rails30
+    - TYPE=UNIT BRANCH=rails31
+    - TYPE=UNIT BRANCH=rails32
+    - TYPE=UNIT BRANCH=rails40
+    - TYPE=UNIT BRANCH=rails41
+    - TYPE=UNIT BRANCH=rails42
+    - TYPE=UNIT BRANCH=norails
+    - TYPE=FUNCTIONAL GROUP=agent
+    - TYPE=FUNCTIONAL GROUP=api
+    - TYPE=FUNCTIONAL GROUP=background
+    - TYPE=FUNCTIONAL GROUP=database
+    - TYPE=FUNCTIONAL GROUP=httpclients
+    - TYPE=FUNCTIONAL GROUP=rails
+    - TYPE=FUNCTIONAL GROUP=serialization
+    - TYPE=FUNCTIONAL GROUP=sinatra
+    - TYPE=FUNCTIONAL GROUP=rest
 
 matrix:
   allow_failures:
     - rvm: rbx-2
-      
+
+sudo: false
+
+cache: bundler
