@@ -1,3 +1,9 @@
+services:
+  - mysql
+  - redis-server
+  - mongodb
+  - memcached
+
 language: ruby
 
 script: ./test/ci/test_runner.sh
