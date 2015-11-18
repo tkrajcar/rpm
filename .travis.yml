@@ -6,7 +6,7 @@ services:
 
 language: ruby
 
-script: ./test/ci/test_runner.sh
+script: ./test/script/ci.sh
 
 before_install:
   - "[[ $TRAVIS_RUBY_VERSION = \"1.8.7\" ]] && gem update --system 1.6.2"
