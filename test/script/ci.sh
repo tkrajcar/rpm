@@ -1,6 +1,7 @@
 #!/bin/bash
 set -e
 
+echo "BUNDLE_PATH set to: $BUNDLE_PATH"
 if [ "$TYPE" = "UNIT" ]; then
   bundle exec rake test:env[$ENVIRONMENT]
 elif [ "$TYPE" = "FUNCTIONAL" ]; then
