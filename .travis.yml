@@ -12,6 +12,8 @@ before_install:
   - "if [[ `ruby -v` =~ 1\\.8\\.7 ]]; then gem update --system 1.6.2; fi"
   - gem --version
 
+bundler_args: --path=../bundle
+
 rvm:
   - 1.8.7
   - ree
@@ -26,7 +28,6 @@ rvm:
 
 env:
   global:
-    - BUNDLE_PATH = "~/.bundle"
     - JAVA_OPTS="-XX:+TieredCompilation -XX:TieredStopAtLevel=1"
     - JRUBY_OPTS="-Xcompile.invokedynamic=false -J-Djruby.compile.mode=OFF"
     - RBXOPT="-Xcompiler.no_rbc -Xint"
