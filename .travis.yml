@@ -30,10 +30,6 @@ env:
   global:
     - JAVA_OPTS="-XX:+TieredCompilation -XX:TieredStopAtLevel=1"
     - JRUBY_OPTS="-Xcompile.invokedynamic=false -J-Djruby.compile.mode=OFF"
-    - MERB_ENV=""
-    - NEW_RELIC_ENV=development
-    - RACK_ENV=""
-    - RAILS_ENV=""
     - RBXOPT="-Xcompiler.no_rbc -Xint"
     - SERIALIZE=1
     - TESTOPTS="-v"
