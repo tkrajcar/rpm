@@ -15,16 +15,16 @@ before_install:
 bundler_args: --path=../bundle
 
 rvm:
-  # - 1.8.7
-  # - ree
-  # - 1.9.2
-  # - 1.9.3
-  # - 2.0
-  # - 2.1
+  - 1.8.7
+  - ree
+  - 1.9.2
+  - 1.9.3
+  - 2.0
+  - 2.1
   - 2.2
-  # - jruby-1.7.20
-  # - jruby-9.0.4.0
-  # - rbx-2.5.8
+  - jruby-1.7.20
+  - jruby-9.0.4.0
+  - rbx-2.5.8
 
 env:
   global:
@@ -35,25 +35,25 @@ env:
     - TESTOPTS="-v"
     - VERBOSE = 1
   matrix:
-    # - TYPE=UNIT ENVIRONMENT=rails21
-    # - TYPE=UNIT ENVIRONMENT=rails22
-    # - TYPE=UNIT ENVIRONMENT=rails23
-    # - TYPE=UNIT ENVIRONMENT=rails30
-    # - TYPE=UNIT ENVIRONMENT=rails31
-    # - TYPE=UNIT ENVIRONMENT=rails32
-    # - TYPE=UNIT ENVIRONMENT=rails40
-    # - TYPE=UNIT ENVIRONMENT=rails41
-    # - TYPE=UNIT ENVIRONMENT=rails42
-    # - TYPE=UNIT ENVIRONMENT=norails
-    # - TYPE=FUNCTIONAL GROUP=agent
-    # - TYPE=FUNCTIONAL GROUP=api
-    # - TYPE=FUNCTIONAL GROUP=background
-    # - TYPE=FUNCTIONAL GROUP=database
-    # - TYPE=FUNCTIONAL GROUP=httpclients
+    - TYPE=UNIT ENVIRONMENT=rails21
+    - TYPE=UNIT ENVIRONMENT=rails22
+    - TYPE=UNIT ENVIRONMENT=rails23
+    - TYPE=UNIT ENVIRONMENT=rails30
+    - TYPE=UNIT ENVIRONMENT=rails31
+    - TYPE=UNIT ENVIRONMENT=rails32
+    - TYPE=UNIT ENVIRONMENT=rails40
+    - TYPE=UNIT ENVIRONMENT=rails41
+    - TYPE=UNIT ENVIRONMENT=rails42
+    - TYPE=UNIT ENVIRONMENT=norails
+    - TYPE=FUNCTIONAL GROUP=agent
+    - TYPE=FUNCTIONAL GROUP=api
+    - TYPE=FUNCTIONAL GROUP=background
+    - TYPE=FUNCTIONAL GROUP=database
+    - TYPE=FUNCTIONAL GROUP=httpclients
     - TYPE=FUNCTIONAL GROUP=rails
-    # - TYPE=FUNCTIONAL GROUP=serialization
+    - TYPE=FUNCTIONAL GROUP=serialization
     - TYPE=FUNCTIONAL GROUP=sinatra
-    # - TYPE=FUNCTIONAL GROUP=rest
+    - TYPE=FUNCTIONAL GROUP=rest
 
 matrix:
   allow_failures:
