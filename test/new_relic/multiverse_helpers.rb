@@ -120,7 +120,10 @@ module MultiverseHelpers
 
   def start_fake_collector
     $collector.restart if $collector.needs_restart?
-    agent.service.collector.port = $collector.port if agent
+    if agent
+      agent.service.collector.name = "127.0.0.1"
+      agent.service.collector.port = $collector.port
+    end
   end
 
   def omit_collector?
